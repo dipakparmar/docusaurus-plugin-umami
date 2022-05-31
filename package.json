@@ -1,0 +1,28 @@
+{
+  "name": "@dipakparmar/docusaurus-plugin-umami",
+  "version": "0.0.0-development",
+  "description": "Umami Analytics plugin for Docusaurus v2.",
+  "main": "src/index.js",
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": "git@github.com:dipakparmar/docusaurus-plugin-umami.git",
+  "bugs": {
+    "url": "https://github.com/dipakparmar/docusaurus-plugin-umami/issues"
+  },
+  "dependencies": {
+    "@docusaurus/core": "2.0.0-beta.19"
+  },
+  "author": "Dipak Parmar <hi@dipak.tech>",
+  "license": "MIT",
+  "keywords": [
+    "umami",
+    "analytics",
+    "docusaurus",
+    "docusaurus-plugin",
+    "docusaurus-plugin-umami"
+  ],
+  "engine": {
+    "node": ">=16.14"
+  }
+}
