@@ -23,7 +23,7 @@ or with yarn:
 yarn add @dipakparmar/docusaurus-plugin-umami
 ```
 
-## Add the plugin to the config file
+## Configuration
 
 Add the plugin and websiteID and analyticsDomain to your `docusaurus.config.js`:
 
@@ -45,7 +45,7 @@ module.exports = {
 };
 ```
 
-## Configuration
+### Options
 
 Accepted fields:
 
@@ -65,7 +65,8 @@ Accepted fields:
 
 </small>
 
-Reference: 
+## Reference: 
+
 - Docusuarus Plugin Readme Example from https://github.com/sgromkov/docusaurus-plugin-yandex-metrica
 - Plugin Architecture: https://docusaurus.io/docs/api/plugin-methods#example
 - Umami Analytics Tracker Configuration: https://umami.is/docs/tracker-config
