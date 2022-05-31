@@ -20,6 +20,10 @@ module.exports = async function pluginUmami(context, options) {
     async contentLoaded({ actions }) {
       actions.setGlobalData(options);
     },
+    getClientModules() {
+      // only load the module in production and when the dataAutoTrack is set to false to prevent duplicate event tracking
+      return isProd && dataAutoTrack == false ? ['./analytics'] : [];
+    },
     injectHtmlTags() {
       if (!isProd) {
         return {};
