@@ -56,7 +56,7 @@ Accepted fields:
 | `websiteID` | `string` | **Required** | The unique website ID from your Umami Analytics. |
 | `analyticsDomain` | `string` | **Required** | Your domain of where Umami Analytics is hosted. |
 | `scriptName` | `string` | `umami` | Name of your custom tracker script.  |
-| `dataHostURL` | `boolean` | | By default, Umami will send data to wherever the script is located. You can override this to send data to another location. |
+| `dataHostURL` | `string` | | By default, Umami will send data to wherever the script is located. You can override this to send data to another location. |
 | `dataAutoTrack` | `boolean` | | By default, Umami tracks all pageviews and events for you automatically. You can disable this behavior and track events yourself using the tracker functions. |
 | `dataDoNoTrack` | `boolean` |  | Configure Umami to respect the visitor's Do Not Track setting. |
 | `dataCache` | `boolean` | | If you get a lot of pageviews from the same user, for example in a forum website, you can cache some data to improve the performance of the tracking script. |
