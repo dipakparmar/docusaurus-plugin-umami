@@ -5,13 +5,13 @@ module.exports = async function pluginUmami(context, options) {
   if (!websiteID) {
     throw new Error(
       'You need to specify `websiteID` field in `options` '
-      + 'to use docusaurus-plugin-umami'
+      + 'to use @dipakparmar/docusaurus-plugin-umami'
     )
   }
   if (!analyticsDomain) {
     throw new Error(
       'You need to specify `analyticsDomain` field in `options` '
-      + 'to use docusaurus-plugin-umami'
+      + 'to use @dipakparmar/docusaurus-plugin-umami'
     )
   }
 
