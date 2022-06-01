@@ -14,7 +14,7 @@
     "url": "https://github.com/dipakparmar/docusaurus-plugin-umami/issues"
   },
   "dependencies": {
-    "@docusaurus/core": "2.0.0-beta.19"
+    "@docusaurus/core": "^2.0.0-beta.19"
   },
   "author": "Dipak Parmar <hi@dipak.tech>",
   "license": "MIT",
