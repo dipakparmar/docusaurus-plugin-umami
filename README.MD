@@ -32,14 +32,14 @@ module.exports = {
   plugins: [
     ['@dipakparmar/docusaurus-plugin-umami', {
       // options
-      "websiteID": "your-website-id", // Required
-      "analyticsDomain": "your-analytics-domain", // Required
-      "scriptName": "", 
-      "dataHostURL": "",
+      websiteID: "your-website-id", // Required
+      analyticsDomain: "your-analytics-domain", // Required
+      scriptName: "", 
+      dataHostURL: "",
       dataAutoTrack: true,
       dataDoNoTrack: true,
       dataCache: true,
-      "dataDomains": "", // comma separated list of domains, *Recommended*
+      dataDomains: "", // comma separated list of domains, *Recommended*
     }],
   ],
 };
