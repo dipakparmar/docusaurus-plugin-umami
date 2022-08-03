@@ -3,16 +3,13 @@
   "version": "1.0.1",
   "description": "Umami Analytics plugin for Docusaurus v2.",
   "main": "src/index.js",
+  "private": false,
   "publishConfig": {
     "access": "public"
   },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/dipakparmar/docusaurus-plugin-umami"
-},
-  "bugs": {
-    "url": "https://github.com/dipakparmar/docusaurus-plugin-umami/issues"
-  },
+  "repository": "https://github.com/dipakparmar/docusaurus-plugin-umami.git",
+  "homepage": "https://github.com/webbertakken/docusaurus-plugin-content-gists",
+  "bugs": "https://github.com/dipakparmar/docusaurus-plugin-umami/issues",
   "dependencies": {
     "@docusaurus/core": "^2.0.1"
   },
