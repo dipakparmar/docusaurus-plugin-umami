@@ -1,6 +1,6 @@
 {
   "name": "@dipakparmar/docusaurus-plugin-umami",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Umami Analytics plugin for Docusaurus v2.",
   "main": "src/index.js",
   "private": false,
