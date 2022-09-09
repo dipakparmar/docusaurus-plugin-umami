@@ -10,7 +10,7 @@
   "repository": "https://github.com/dipakparmar/docusaurus-plugin-umami.git",
   "homepage": "https://github.com/webbertakken/docusaurus-plugin-content-gists",
   "bugs": "https://github.com/dipakparmar/docusaurus-plugin-umami/issues",
-  "dependencies": {
+  "peerDependencies": {
     "@docusaurus/core": "^2.0.1"
   },
   "author": "Dipak Parmar <hi@dipak.tech>",
