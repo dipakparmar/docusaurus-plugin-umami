@@ -11,7 +11,7 @@
   "homepage": "https://github.com/webbertakken/docusaurus-plugin-content-gists",
   "bugs": "https://github.com/dipakparmar/docusaurus-plugin-umami/issues",
   "peerDependencies": {
-    "@docusaurus/core": "^2.0.1"
+    "@docusaurus/core": "^2.1.0"
   },
   "author": "Dipak Parmar <hi@dipak.tech>",
   "license": "MIT",
