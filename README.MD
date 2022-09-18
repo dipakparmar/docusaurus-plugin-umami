@@ -19,6 +19,7 @@ npm install --save @dipakparmar/docusaurus-plugin-umami
 ```
 
 or with yarn:
+
 ```bash
 yarn add @dipakparmar/docusaurus-plugin-umami
 ```
@@ -30,17 +31,20 @@ Add the plugin and websiteID and analyticsDomain to your `docusaurus.config.js`:
 ```js
 module.exports = {
   plugins: [
-    ['@dipakparmar/docusaurus-plugin-umami', {
-      // options
-      websiteID: "your-website-id", // Required
-      analyticsDomain: "your-analytics-domain", // Required
-      scriptName: "", 
-      dataHostURL: "",
-      dataAutoTrack: true,
-      dataDoNoTrack: true,
-      dataCache: true,
-      dataDomains: "", // comma separated list of domains, *Recommended*
-    }],
+    [
+      "@dipakparmar/docusaurus-plugin-umami",
+      /** @type {import('@dipakparmar/docusaurus-plugin-umami').Options} */
+      ({
+        websiteID: "your-website-id", // Required
+        analyticsDomain: "analytics.mydomain.com", // Required
+        scriptName: "", // Optional
+        dataHostURL: "", // Optional
+        dataAutoTrack: true, // Optional
+        dataDoNoTrack: true, // Optional
+        dataCache: true, // Optional
+        dataDomains: "", // comma separated list of domains, *Recommended*
+      }),
+    ],
   ],
 };
 ```
@@ -51,21 +55,20 @@ Accepted fields:
 
 <small>
 
-| Name | Type | Default | Description |
-| --- | --- | --- | --- |
-| `websiteID` | `string` | **Required** | The unique website ID from your Umami Analytics. |
-| `analyticsDomain` | `string` | **Required** | Your domain of where Umami Analytics is hosted. |
-| `scriptName` | `string` | `umami.js` | Name of your custom tracker script.  |
-| `dataHostURL` | `string` | | By default, Umami will send data to wherever the script is located. You can override this to send data to another location. |
-| `dataAutoTrack` | `boolean` | | By default, Umami tracks all pageviews and events for you automatically. You can disable this behavior and track events yourself using the tracker functions. |
-| `dataDoNoTrack` | `boolean` |  | Configure Umami to respect the visitor's Do Not Track setting. |
-| `dataCache` | `boolean` | | If you get a lot of pageviews from the same user, for example in a forum website, you can cache some data to improve the performance of the tracking script. |
-| `dataDomains` | `string` | | If you want the tracker to only run on specific domains, you can add them to your tracker script. This is a comma delimited list of domain names. Helps if you are working in a staging/development environment. |
-
+| Name              | Type      | Default      | Description                                                                                                                                                                                                      |
+| ----------------- | --------- | ------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `websiteID`       | `string`  | **Required** | The unique website ID from your Umami Analytics.                                                                                                                                                                 |
+| `analyticsDomain` | `string`  | **Required** | Your domain of where Umami Analytics is hosted.                                                                                                                                                                  |
+| `scriptName`      | `string`  | `umami.js`   | Name of your custom tracker script.                                                                                                                                                                              |
+| `dataHostURL`     | `string`  |              | By default, Umami will send data to wherever the script is located. You can override this to send data to another location.                                                                                      |
+| `dataAutoTrack`   | `boolean` |              | By default, Umami tracks all pageviews and events for you automatically. You can disable this behavior and track events yourself using the tracker functions.                                                    |
+| `dataDoNoTrack`   | `boolean` |              | Configure Umami to respect the visitor's Do Not Track setting.                                                                                                                                                   |
+| `dataCache`       | `boolean` |              | If you get a lot of pageviews from the same user, for example in a forum website, you can cache some data to improve the performance of the tracking script.                                                     |
+| `dataDomains`     | `string`  |              | If you want the tracker to only run on specific domains, you can add them to your tracker script. This is a comma delimited list of domain names. Helps if you are working in a staging/development environment. |
 
 </small>
 
-## Reference: 
+## Reference:
 
 - Docusuarus Plugin Readme Example from https://github.com/sgromkov/docusaurus-plugin-yandex-metrica
 - Plugin Architecture: https://docusaurus.io/docs/api/plugin-methods#example
