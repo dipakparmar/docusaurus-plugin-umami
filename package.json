@@ -2,7 +2,12 @@
   "name": "@dipakparmar/docusaurus-plugin-umami",
   "version": "1.0.3",
   "description": "Umami Analytics plugin for Docusaurus v2.",
-  "main": "src/index.js",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc --build",
+    "watch": "tsc --build --watch"
+  },
   "private": false,
   "publishConfig": {
     "access": "public"
@@ -10,8 +15,11 @@
   "repository": "https://github.com/dipakparmar/docusaurus-plugin-umami.git",
   "homepage": "https://github.com/dipakparmar/docusaurus-plugin-umami",
   "bugs": "https://github.com/dipakparmar/docusaurus-plugin-umami/issues",
-  "peerDependencies": {
-    "@docusaurus/core": "^2.1.0"
+  "dependencies": {
+    "@docusaurus/core": "2.1.0",
+    "@docusaurus/types": "2.1.0",
+    "@docusaurus/utils-validation": "2.1.0",
+    "tslib": "^2.4.0"
   },
   "author": "Dipak Parmar <hi@dipak.tech>",
   "license": "MIT",
@@ -24,5 +32,10 @@
   ],
   "engine": {
     "node": ">=16.14"
+  },
+  "devDependencies": {
+    "@docusaurus/module-type-aliases": "^2.1.0",
+    "@tsconfig/docusaurus": "^1.0.6",
+    "typescript": "^4.8.3"
   }
 }
