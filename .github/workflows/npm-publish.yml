@@ -8,8 +8,8 @@ on:
     types: [created]
 
 jobs:
-  publish:
-    name: publish to npm registry
+  build-and-publish:
+    name: build and publish to npm registry
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -17,6 +17,8 @@ jobs:
         with:
           node-version: 16
           registry-url: https://registry.npmjs.org/
+      - run: npm install
+      - run: npm run build
       - run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{secrets.npm_token}}
