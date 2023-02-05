@@ -12,6 +12,11 @@
   "publishConfig": {
     "access": "public"
   },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
   "repository": "https://github.com/dipakparmar/docusaurus-plugin-umami.git",
   "homepage": "https://github.com/dipakparmar/docusaurus-plugin-umami",
   "bugs": "https://github.com/dipakparmar/docusaurus-plugin-umami/issues",
