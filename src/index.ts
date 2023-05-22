@@ -47,7 +47,7 @@ export default function pluginUmami(
               async: true,
               defer: true,
               src: `https://${analyticsDomain}/${
-                scriptName ? scriptName : "umami.js"
+                scriptName ? scriptName : "script.js"
               }`,
               "data-website-id": websiteID,
               ...(dataHostURL && { "data-host-url": dataHostURL }),
@@ -81,4 +81,4 @@ export function validateOptions({
   return validate(pluginOptionsSchema, options);
 }
 
-export type {PluginOptions, Options};
+export type { PluginOptions, Options };
