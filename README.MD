@@ -24,6 +24,18 @@ or with yarn:
 yarn add @dipakparmar/docusaurus-plugin-umami
 ```
 
+or with pnpm:
+
+```bash
+pnpm install @dipakparmar/docusaurus-plugin-umami
+```
+
+or with bun:
+  
+```bash
+bun install @dipakparmar/docusaurus-plugin-umami
+```
+
 ## Configuration
 
 Add the plugin and websiteID and analyticsDomain to your `docusaurus.config.js`:
