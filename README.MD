@@ -52,7 +52,7 @@ module.exports = {
         scriptName: "", // Optional
         dataHostURL: "", // Optional
         dataAutoTrack: true, // Optional
-        dataDoNoTrack: true, // Optional
+        dataDoNotTrack: true, // Optional
         dataCache: true, // Optional
         dataDomains: "", // comma separated list of domains, *Recommended*
       }),
@@ -74,7 +74,7 @@ Accepted fields:
 | `scriptName`      | `string`  | `script.js`   | Name of your custom tracker script.                                                                                                                                                                              |
 | `dataHostURL`     | `string`  |              | By default, Umami will send data to wherever the script is located. You can override this to send data to another location.                                                                                      |
 | `dataAutoTrack`   | `boolean` |              | By default, Umami tracks all pageviews and events for you automatically. You can disable this behavior and track events yourself using the tracker functions.                                                    |
-| `dataDoNoTrack`   | `boolean` |              | Configure Umami to respect the visitor's Do Not Track setting.                                                                                                                                                   |
+| `dataDoNotTrack`   | `boolean` |              | Configure Umami to respect the visitor's Do Not Track setting.                                                                                                                                                   |
 | `dataCache`       | `boolean` |              | If you get a lot of pageviews from the same user, for example in a forum website, you can cache some data to improve the performance of the tracking script.                                                     |
 | `dataDomains`     | `string`  |              | If you want the tracker to only run on specific domains, you can add them to your tracker script. This is a comma delimited list of domain names. Helps if you are working in a staging/development environment. |
 
