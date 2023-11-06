@@ -23,7 +23,7 @@
   "dependencies": {
     "@docusaurus/core": "2.4.3",
     "@docusaurus/types": "2.4.3",
-    "@docusaurus/utils-validation": "2.4.3",
+    "@docusaurus/utils-validation": "3.0.0",
     "tslib": "^2.4.0"
   },
   "author": "Dipak Parmar <hi@dipak.tech>",
