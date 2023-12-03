@@ -21,9 +21,9 @@
   "homepage": "https://github.com/dipakparmar/docusaurus-plugin-umami",
   "bugs": "https://github.com/dipakparmar/docusaurus-plugin-umami/issues",
   "dependencies": {
-    "@docusaurus/core": "2.4.3",
-    "@docusaurus/types": "2.4.3",
-    "@docusaurus/utils-validation": "2.4.3",
+    "@docusaurus/core": "3.0.0",
+    "@docusaurus/types": "3.0.0",
+    "@docusaurus/utils-validation": "3.0.0",
     "tslib": "^2.4.0"
   },
   "author": "Dipak Parmar <hi@dipak.tech>",
@@ -36,11 +36,11 @@
     "docusaurus-plugin-umami"
   ],
   "engine": {
-    "node": ">=16.14"
+    "node": ">=18.0"
   },
   "devDependencies": {
-    "@docusaurus/module-type-aliases": "^2.1.0",
+    "@docusaurus/module-type-aliases": "^3.0.0",
     "@tsconfig/docusaurus": "^2.0.0",
-    "typescript": "^5.0.3"
+    "typescript": "~5.2.2"
   }
 }
