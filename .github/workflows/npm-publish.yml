@@ -9,6 +9,9 @@ on:
 
 jobs:
   build-and-publish:
+    permissions: 
+      contents: read
+      id-token: write
     name: build and publish to npm registry
     runs-on: ubuntu-latest
     steps:
