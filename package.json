@@ -17,7 +17,10 @@
     "README.md",
     "LICENSE"
   ],
-  "repository": "https://github.com/dipakparmar/docusaurus-plugin-umami.git",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dipakparmar/docusaurus-plugin-umami.git"
+  },
   "homepage": "https://github.com/dipakparmar/docusaurus-plugin-umami",
   "bugs": "https://github.com/dipakparmar/docusaurus-plugin-umami/issues",
   "dependencies": {
