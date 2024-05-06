@@ -1,10 +1,11 @@
-import { Joi } from "@docusaurus/utils-validation";
 import type {
   LoadContext,
-  Plugin,
   OptionValidationContext,
+  Plugin,
 } from "@docusaurus/types";
-import type { PluginOptions, Options } from "./options";
+import type { Options, PluginOptions } from "./options";
+
+import { Joi } from "@docusaurus/utils-validation";
 
 export default function pluginUmami(
   context: LoadContext,
@@ -19,6 +20,7 @@ export default function pluginUmami(
     dataDoNotTrack,
     dataCache,
     dataDomains,
+    dataExcludeSearch
   } = options;
   const isProd = process.env.NODE_ENV === "production";
 
@@ -55,6 +57,7 @@ export default function pluginUmami(
               ...(dataDoNotTrack && { "data-do-not-track": dataDoNotTrack }),
               ...(dataCache && { "data-cache": dataCache }),
               ...(dataDomains && { "data-domains": dataDomains }),
+              ...(dataExcludeSearch && { "data-exclude-search": dataExcludeSearch })
             },
           },
         ],
@@ -72,6 +75,7 @@ const pluginOptionsSchema = Joi.object<PluginOptions>({
   dataDoNotTrack: Joi.boolean().default(false),
   dataCache: Joi.boolean().default(false),
   dataDomains: Joi.string(),
+  dataExcludeSearch: Joi.boolean().default(false)
 });
 
 export function validateOptions({

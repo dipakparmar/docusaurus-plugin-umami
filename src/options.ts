@@ -7,6 +7,7 @@ export type PluginOptions = {
   dataDoNotTrack: boolean;
   dataCache: boolean;
   dataDomains: string;
+  dataExcludeSearch: boolean;
 };
 
 export type Options = Partial<PluginOptions>;
