@@ -85,4 +85,4 @@ Accepted fields:
 
 - Docusuarus Plugin Readme Example from https://github.com/sgromkov/docusaurus-plugin-yandex-metrica
 - Plugin Architecture: https://docusaurus.io/docs/api/plugin-methods#example
-- Umami Analytics Tracker Configuration: https://umami.is/docs/tracker-config
+- Umami Analytics Tracker Configuration: https://umami.is/docs/tracker-configuration
