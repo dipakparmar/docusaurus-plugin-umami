@@ -24,7 +24,7 @@
   "homepage": "https://github.com/dipakparmar/docusaurus-plugin-umami",
   "bugs": "https://github.com/dipakparmar/docusaurus-plugin-umami/issues",
   "dependencies": {
-    "@docusaurus/core": "3.5.2",
+    "@docusaurus/core": "3.6.0",
     "@docusaurus/types": "3.5.2",
     "@docusaurus/utils-validation": "3.6.0",
     "tslib": "^2.4.0"
