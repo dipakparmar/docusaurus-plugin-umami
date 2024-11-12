@@ -11,3 +11,11 @@ updates:
       docusaurus:
         patterns:
         - "@docusaurus/*"
+
+  # Enable version updates for GitHub Actions workflows
+  - package-ecosystem: "github-actions"
+    # Look for `.github/workflows` files in the `root` directory
+    directory: "/"
+    # Check the GitHub Actions API for updates every day (weekdays)
+    schedule:
+      interval: "weekly"
