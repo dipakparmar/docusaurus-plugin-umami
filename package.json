@@ -25,7 +25,6 @@
   "bugs": "https://github.com/dipakparmar/docusaurus-plugin-umami/issues",
   "dependencies": {
     "@docusaurus/core": "3.6.1",
-    "@docusaurus/types": "3.6.1",
     "@docusaurus/utils-validation": "3.6.1",
     "tslib": "^2.4.0"
   },
@@ -43,6 +42,7 @@
   },
   "devDependencies": {
     "@docusaurus/module-type-aliases": "^3.0.0",
+    "@docusaurus/types": "3.6.1",
     "@tsconfig/docusaurus": "^2.0.0",
     "typescript": "~5.6.3"
   }
