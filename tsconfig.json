@@ -12,7 +12,7 @@
     "skipLibCheck": true,
     "sourceMap": false,
     "strict": true,
-    "types": ["node", "@docusaurus/module-type-aliases"]
+    "types": ["@docusaurus/module-type-aliases"]
   },
   "include": ["src"],
 }
