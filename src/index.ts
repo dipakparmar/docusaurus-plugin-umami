@@ -20,7 +20,9 @@ export default function pluginUmami(
     dataDoNotTrack,
     dataCache,
     dataDomains,
-    dataExcludeSearch
+    dataExcludeSearch,
+    dataExcludeHash,
+    dataTag,
   } = options;
   const isProd = process.env.NODE_ENV === "production";
 
@@ -53,11 +55,23 @@ export default function pluginUmami(
               }`,
               "data-website-id": websiteID,
               ...(dataHostURL && { "data-host-url": dataHostURL }),
-              ...(dataAutoTrack && { "data-auto-track": dataAutoTrack }),
-              ...(dataDoNotTrack && { "data-do-not-track": dataDoNotTrack }),
-              ...(dataCache && { "data-cache": dataCache }),
+              ...(dataAutoTrack !== undefined && {
+                "data-auto-track": String(dataAutoTrack),
+              }),
+              ...(dataDoNotTrack !== undefined && {
+                "data-do-not-track": String(dataDoNotTrack),
+              }),
+              ...(dataCache !== undefined && {
+                "data-cache": String(dataCache),
+              }),
               ...(dataDomains && { "data-domains": dataDomains }),
-              ...(dataExcludeSearch && { "data-exclude-search": dataExcludeSearch })
+              ...(dataExcludeSearch !== undefined && {
+                "data-exclude-search": String(dataExcludeSearch),
+              }),
+              ...(dataExcludeHash !== undefined && {
+                "data-exclude-hash": String(dataExcludeHash),
+              }),
+              ...(dataTag && { "data-tag": dataTag }),
             },
           },
         ],
@@ -75,7 +89,9 @@ const pluginOptionsSchema = Joi.object<PluginOptions>({
   dataDoNotTrack: Joi.boolean().default(false),
   dataCache: Joi.boolean().default(false),
   dataDomains: Joi.string(),
-  dataExcludeSearch: Joi.boolean().default(false)
+  dataExcludeSearch: Joi.boolean().default(false),
+  dataExcludeHash: Joi.boolean().default(false),
+  dataTag: Joi.string(),
 });
 
 export function validateOptions({
