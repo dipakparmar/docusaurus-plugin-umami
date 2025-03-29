@@ -8,6 +8,8 @@ export type PluginOptions = {
   dataCache?: boolean;
   dataDomains?: string;
   dataExcludeSearch?: boolean;
+  dataExcludeHash?: boolean;
+  dataTag?: string;
 };
 
 export type Options = Partial<PluginOptions>;
