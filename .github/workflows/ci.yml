@@ -33,4 +33,4 @@ jobs:
         run: pnpm run build
 
       - name: 📦 release pkg.pr.new
-        run: pnpm pkg-pr-new publish --compact
+        run: pnpm dlx pkg-pr-new publish --compact
