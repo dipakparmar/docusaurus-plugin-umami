@@ -37,7 +37,7 @@
     "docusaurus-plugin-umami"
   ],
   "engine": {
-    "node": ">=18.0"
+    "node": ">=20.0"
   },
   "devDependencies": {
     "@docusaurus/core": "3.7.0",
