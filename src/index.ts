@@ -23,6 +23,7 @@ export default function pluginUmami(
     dataExcludeSearch,
     dataExcludeHash,
     dataTag,
+    dataBeforeSend,
   } = options;
   const isProd = process.env.NODE_ENV === "production";
 
@@ -72,6 +73,7 @@ export default function pluginUmami(
                 "data-exclude-hash": String(dataExcludeHash),
               }),
               ...(dataTag && { "data-tag": dataTag }),
+              ...(dataBeforeSend && { "data-before-send": dataBeforeSend }),
             },
           },
         ],
@@ -92,6 +94,7 @@ const pluginOptionsSchema = Joi.object<PluginOptions>({
   dataExcludeSearch: Joi.boolean().default(false),
   dataExcludeHash: Joi.boolean().default(false),
   dataTag: Joi.string(),
+  dataBeforeSend: Joi.string(),
 });
 
 export function validateOptions({
