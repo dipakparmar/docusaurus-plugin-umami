@@ -17,6 +17,7 @@ export default function pluginUmami(
     scriptName,
     dataHostURL,
     dataAutoTrack,
+    dataBeforeSend,
     dataDoNotTrack,
     dataCache,
     dataDomains,
@@ -58,6 +59,9 @@ export default function pluginUmami(
               ...(dataAutoTrack !== undefined && {
                 "data-auto-track": String(dataAutoTrack),
               }),
+              ...(dataBeforeSend !== undefined && {
+                "data-before-send": String(dataBeforeSend),
+              }),
               ...(dataDoNotTrack !== undefined && {
                 "data-do-not-track": String(dataDoNotTrack),
               }),
@@ -86,6 +90,7 @@ const pluginOptionsSchema = Joi.object<PluginOptions>({
   scriptName: Joi.string(),
   dataHostURL: Joi.string(),
   dataAutoTrack: Joi.boolean().default(true),
+  dataBeforeSend: Joi.string(),
   dataDoNotTrack: Joi.boolean().default(false),
   dataCache: Joi.boolean().default(false),
   dataDomains: Joi.string(),

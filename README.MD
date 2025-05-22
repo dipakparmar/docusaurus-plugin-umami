@@ -52,6 +52,7 @@ module.exports = {
         scriptName: "script.js", // Optional, defaults to script.js
         dataHostURL: "", // Optional
         dataAutoTrack: true, // Optional, defaults to true
+        dataBeforeSend: "", // Optional, name of function
         dataDoNotTrack: false, // Optional, defaults to false
         dataCache: false, // Optional, defaults to false
         dataDomains: "", // Optional, comma separated list of domains, *Recommended*
@@ -70,19 +71,20 @@ Accepted fields:
 
 <small>
 
-| Name              | Type      | Default      | Description                                                                                                                                                                                                      |
-| ----------------- | --------- | ------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `websiteID`       | `string`  | **Required** | The unique website ID from your Umami Analytics.                                                                                                                                                                 |
-| `analyticsDomain` | `string`  | **Required** | Your domain of where Umami Analytics is hosted.                                                                                                                                                                  |
-| `scriptName`      | `string`  | `script.js`  | Name of your custom tracker script.                                                                                                                                                                              |
-| `dataHostURL`     | `string`  |              | By default, Umami will send data to wherever the script is located. You can override this to send data to another location.                                                                                      |
-| `dataAutoTrack`   | `boolean` | `true`       | By default, Umami tracks all pageviews and events for you automatically. You can disable this behavior and track events yourself using the tracker functions.                                                    |
-| `dataDoNotTrack`  | `boolean` | `false`      | Configure Umami to respect the visitor's Do Not Track setting.                                                                                                                                                   |
-| `dataCache`       | `boolean` | `false`      | If you get a lot of pageviews from the same user, for example in a forum website, you can cache some data to improve the performance of the tracking script.                                                     |
-| `dataDomains`     | `string`  |              | If you want the tracker to only run on specific domains, you can add them to your tracker script. This is a comma delimited list of domain names. Helps if you are working in a staging/development environment. |
-| `dataExcludeSearch` | `boolean` | `false`     | Configure the tracker to not record query parameters in the URL.                                                                                                                                                |
-| `dataExcludeHash` | `boolean` | `false`      | Configure the tracker to not record URL hashes.                                                                                                                                                                  |
-| `dataTag`         | `string`  |              | Add a tag to your website's data for segmentation.                                                                                                                                                               |
+| Name                | Type      | Default      | Description                                                                                                                                                                                                             |
+| ------------------- | --------- | ------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `websiteID`         | `string`  | **Required** | The unique website ID from your Umami Analytics.                                                                                                                                                                        |
+| `analyticsDomain`   | `string`  | **Required** | Your domain of where Umami Analytics is hosted.                                                                                                                                                                         |
+| `scriptName`        | `string`  | `script.js`  | Name of your custom tracker script.                                                                                                                                                                                     |
+| `dataHostURL`       | `string`  |              | By default, Umami will send data to wherever the script is located. You can override this to send data to another location.                                                                                             |
+| `dataAutoTrack`     | `boolean` | `true`       | By default, Umami tracks all pageviews and events for you automatically. You can disable this behavior and track events yourself using the tracker functions.                                                           |
+| `dataBeforeSend`    | `string`  |              | Name of a function that will be called before data is sent. The function will take two parameters, type and payload. To continue with sending, you return a payload object. To cancel the send, return a false-y value. |
+| `dataDoNotTrack`    | `boolean` | `false`      | Configure Umami to respect the visitor's Do Not Track setting.                                                                                                                                                          |
+| `dataCache`         | `boolean` | `false`      | If you get a lot of pageviews from the same user, for example in a forum website, you can cache some data to improve the performance of the tracking script.                                                            |
+| `dataDomains`       | `string`  |              | If you want the tracker to only run on specific domains, you can add them to your tracker script. This is a comma delimited list of domain names. Helps if you are working in a staging/development environment.        |
+| `dataExcludeSearch` | `boolean` | `false`      | Configure the tracker to not record query parameters in the URL.                                                                                                                                                        |
+| `dataExcludeHash`   | `boolean` | `false`      | Configure the tracker to not record URL hashes.                                                                                                                                                                         |
+| `dataTag`           | `string`  |              | Add a tag to your website's data for segmentation.                                                                                                                                                                      |
 
 </small>
 
