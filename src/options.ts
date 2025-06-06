@@ -4,6 +4,7 @@ export type PluginOptions = {
   scriptName?: string;
   dataHostURL?: string;
   dataAutoTrack?: boolean;
+  dataBeforeSend?: string;
   dataDoNotTrack?: boolean;
   dataCache?: boolean;
   dataDomains?: string;
