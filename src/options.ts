@@ -10,6 +10,7 @@ export type PluginOptions = {
   dataExcludeSearch?: boolean;
   dataExcludeHash?: boolean;
   dataTag?: string;
+  dataBeforeSend?: string;
 };
 
 export type Options = Partial<PluginOptions>;
