@@ -24,8 +24,8 @@
   "homepage": "https://github.com/dipakparmar/docusaurus-plugin-umami",
   "bugs": "https://github.com/dipakparmar/docusaurus-plugin-umami/issues",
   "dependencies": {
-    "@docusaurus/types": "3.8.1",
-    "@docusaurus/utils-validation": "3.8.1"
+    "@docusaurus/types": "3.9.2",
+    "@docusaurus/utils-validation": "3.9.2"
   },
   "author": "Dipak Parmar <hi@dipak.tech>",
   "license": "MIT",
@@ -40,7 +40,7 @@
     "node": ">=20.0"
   },
   "devDependencies": {
-    "@docusaurus/core": "3.8.1",
+    "@docusaurus/core": "3.9.2",
     "@docusaurus/module-type-aliases": "^3.0.0",
     "@tsconfig/docusaurus": "^2.0.0",
     "tslib": "^2.4.0",
