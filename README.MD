@@ -1,6 +1,6 @@
 # 📦 docusaurus-plugin-umami
 
-[Umami Analytics](https://umami.is) plugin for [Docusaurus v2](https://docusaurus.io/).
+[Umami Analytics](https://umami.is) plugin for [Docusaurus](https://docusaurus.io/).
 
 [![Version](https://img.shields.io/npm/v/@dipakparmar/docusaurus-plugin-umami.svg)](https://npmjs.org/package/@dipakparmar/docusaurus-plugin-umami)
 [![Downloads/week](https://img.shields.io/npm/dw/@dipakparmar/docusaurus-plugin-umami)](https://npmjs.org/package/@dipakparmar/docusaurus-plugin-umami)
