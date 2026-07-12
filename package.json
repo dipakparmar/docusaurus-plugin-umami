@@ -46,9 +46,9 @@
     "@semantic-release/changelog": "6.0.3",
     "@semantic-release/git": "10.0.1",
     "knip": "^6.25.0",
-    "oxfmt": "^0.51.0",
+    "oxfmt": "^0.58.0",
     "oxlint": "^1.26.0",
-    "semantic-release": "25.0.3",
+    "semantic-release": "25.0.5",
     "tslib": "^2.4.0",
     "typescript": "~5.8.2"
   },
