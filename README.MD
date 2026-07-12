@@ -5,6 +5,7 @@
 [![Version](https://img.shields.io/npm/v/@dipakparmar/docusaurus-plugin-umami.svg)](https://npmjs.org/package/@dipakparmar/docusaurus-plugin-umami)
 [![Downloads/week](https://img.shields.io/npm/dw/@dipakparmar/docusaurus-plugin-umami)](https://npmjs.org/package/@dipakparmar/docusaurus-plugin-umami)
 [![License](https://img.shields.io/npm/l/@dipakparmar/docusaurus-plugin-umami.svg)](https://github.com/dipakparmar/docusaurus-plugin-umami/blob/main/package.json)
+[![pkg.pr.new](https://pkg.pr.new/badge/dipakparmar/docusaurus-plugin-umami)](https://pkg.pr.new/~/dipakparmar/docusaurus-plugin-umami)
 
 ### ⚠️ production only
 
