@@ -1,21 +1,28 @@
 version: 2
 updates:
-  # Enable version updates for npm
-  - package-ecosystem: "npm"
-    # Look for `package.json` and `lock` files in the `root` directory
-    directory: "/"
-    # Check the npm registry for updates every day (weekdays)
+  # bun: group minor+patch (incl. @docusaurus/*), majors ungrouped for isolated review.
+  - package-ecosystem: 'bun'
+    directory: '/'
     schedule:
-      interval: "weekly"
+      interval: 'weekly'
+    open-pull-requests-limit: 10
+    cooldown:
+      default-days: 3
     groups:
-      docusaurus:
-        patterns:
-        - "@docusaurus/*"
+      minor-and-patch:
+        update-types:
+          - 'minor'
+          - 'patch'
 
-  # Enable version updates for GitHub Actions workflows
-  - package-ecosystem: "github-actions"
-    # Look for `.github/workflows` files in the `root` directory
-    directory: "/"
-    # Check the GitHub Actions API for updates every day (weekdays)
+  - package-ecosystem: 'github-actions'
+    directory: '/'
     schedule:
-      interval: "weekly"
+      interval: 'weekly'
+    open-pull-requests-limit: 10
+    cooldown:
+      default-days: 3
+    groups:
+      minor-and-patch:
+        update-types:
+          - 'minor'
+          - 'patch'
