@@ -3,6 +3,13 @@ import type { Options, PluginOptions } from './options'
 
 import { Joi } from '@docusaurus/utils-validation'
 
+/**
+ * Umami Analytics plugin for Docusaurus. Injects the tracker script (production
+ * only) and, optionally, the recorder and anonymous auto-identify modules.
+ *
+ * @param context - Docusaurus load context (unused).
+ * @param options - {@link PluginOptions} for the tracker.
+ */
 export default function pluginUmami(context: LoadContext, options: PluginOptions): Plugin {
   const {
     websiteID,
@@ -17,11 +24,19 @@ export default function pluginUmami(context: LoadContext, options: PluginOptions
     dataExcludeHash,
     dataTag,
     dataBeforeSend,
+    enableRecorder,
+    autoIdentify,
+    autoIdentifyStorageKey,
   } = options
   const isProd = process.env.NODE_ENV === 'production'
 
   return {
     name: 'docusaurus-plugin-umami',
+    getClientModules() {
+      // Load the auto-identify client module only when opted in, and only in
+      // production (the tracker itself is production-only).
+      return isProd && autoIdentify ? [require.resolve('./auto-identify')] : []
+    },
     async contentLoaded({ actions }) {
       actions.setGlobalData(options)
     },
@@ -67,6 +82,30 @@ export default function pluginUmami(context: LoadContext, options: PluginOptions
               ...(dataBeforeSend && { 'data-before-send': dataBeforeSend }),
             },
           },
+          // Recorder script powers session replays and heatmaps (toggled per
+          // feature in the Umami dashboard).
+          ...(enableRecorder
+            ? [
+                {
+                  tagName: 'script',
+                  attributes: {
+                    defer: true,
+                    src: `https://${analyticsDomain}/recorder.js`,
+                    'data-website-id': websiteID,
+                  },
+                },
+              ]
+            : []),
+          // Pass a custom storage key to the auto-identify client module via an
+          // inline global (client modules can't receive plugin options directly).
+          ...(autoIdentify && autoIdentifyStorageKey
+            ? [
+                {
+                  tagName: 'script',
+                  innerHTML: `window.__UMAMI_ANON_STORAGE_KEY__=${JSON.stringify(autoIdentifyStorageKey)}`,
+                },
+              ]
+            : []),
         ],
       }
     },
@@ -86,8 +125,12 @@ const pluginOptionsSchema = Joi.object<PluginOptions>({
   dataExcludeHash: Joi.boolean().default(false),
   dataTag: Joi.string(),
   dataBeforeSend: Joi.string(),
+  enableRecorder: Joi.boolean().default(false),
+  autoIdentify: Joi.boolean().default(false),
+  autoIdentifyStorageKey: Joi.string().default('umami.anonymous-id'),
 })
 
+/** Validate and apply defaults to user-provided plugin options. */
 export function validateOptions({
   validate,
   options,

@@ -60,6 +60,7 @@ module.exports = {
         dataExcludeHash: false, // Optional, defaults to false
         dataTag: "", // Optional
         dataBeforeSend: "beforeSendHandler", // Optional
+        enableRecorder: false, // Optional, defaults to false. Loads recorder.js for session replays & heatmaps
       }),
     ],
   ],
@@ -84,10 +85,63 @@ Accepted fields:
 | `dataDomains`       | `string`  |              | If you want the tracker to only run on specific domains, you can add them to your tracker script. This is a comma delimited list of domain names. Helps if you are working in a staging/development environment. |
 | `dataExcludeSearch` | `boolean` | `false`      | Configure the tracker to not record query parameters in the URL.                                                                                                                                                 |
 | `dataExcludeHash`   | `boolean` | `false`      | Configure the tracker to not record URL hashes.                                                                                                                                                                  |
-| `dataTag`           | `string`  |              | Add a tag to your website's data for segmentation.                                                                                                                                                               |
+| `dataTag`           | `string`  |              | Add a [tag](https://docs.umami.is/docs/tags) to your website's data for segmentation (e.g. A/B testing).                                                                                                          |
 | `dataBeforeSend`    | `string`  |              | Define a function that will be called before sending the data. Useful for modifying the data before it's sent to the server.                                                                                     |
+| `enableRecorder`    | `boolean` | `false`      | Load Umami's `recorder.js` script to enable [session replays](https://docs.umami.is/docs/replays) and [heatmaps](https://docs.umami.is/docs/heatmaps). Which of the two is recorded is toggled per-website in the Umami dashboard.                     |
+| `autoIdentify`      | `boolean` | `false`      | Assign a stable anonymous ID (persisted in `localStorage`) so a visitor's sessions are grouped via [distinct IDs](https://docs.umami.is/docs/distinct-ids). **See the privacy note below.** Honors Do Not Track / Global Privacy Control.               |
+| `autoIdentifyStorageKey` | `string` | `umami.anonymous-id` | `localStorage` key used to persist the `autoIdentify` anonymous ID.                                                                                                                                     |
 
 </small>
+
+## Custom event tracking
+
+Once the tracker is loaded you can record [custom events](https://docs.umami.is/docs/track-events) two ways.
+
+### Data attributes (no JS)
+
+Add `data-umami-event` (and optional `data-umami-event-*`) to any element:
+
+```jsx
+<button data-umami-event="Signup" data-umami-event-plan="pro">
+  Sign up
+</button>
+```
+
+### Typed client helpers
+
+Import from the `/client` entry for a safe, typed API. The helpers no-op during SSR and before the deferred tracker script has loaded, so they are safe to call anywhere:
+
+```tsx
+import {
+  track,
+  identify,
+  useUmami,
+} from "@dipakparmar/docusaurus-plugin-umami/client";
+
+// Fire a custom event
+track("Signup", { plan: "pro" });
+
+// Assign a distinct id to the session — https://docs.umami.is/docs/distinct-ids
+identify({ id: "user@example.com" });
+
+// Inside a React component
+function SignupButton() {
+  const { track } = useUmami();
+  return <button onClick={() => track("Signup", { plan: "pro" })}>Sign up</button>;
+}
+```
+
+Both approaches work inside `.mdx` docs — `data-umami-event` attributes pass through, and you can `import` the helpers at the top of the file. Because the helpers no-op during server-side rendering, they are safe to call while Docusaurus prerenders your pages (`useUmami()` is a hook, so call it at the top of the MDX doc or inside a component, not conditionally).
+
+> **Tags** are set via the `dataTag` option (the `data-tag` script attribute), not the tracking API — see [Umami tags](https://docs.umami.is/docs/tags).
+
+## Anonymous session grouping (`autoIdentify`)
+
+Set `autoIdentify: true` to have the plugin generate a random ID on the first visit, persist it in `localStorage`, and `identify()` it on every load — so a visitor's sessions are grouped together (same browser = same ID). It's opt-in and honors Do Not Track / Global Privacy Control.
+
+> ⚠️ **Privacy.** A persistent identifier is personal data under GDPR / ePrivacy and generally **requires user consent** — enabling this negates Umami's default cookieless, consent-free posture. Using `localStorage` instead of a cookie does **not** change this; the legal treatment is the same. You are responsible for obtaining consent where required.
+>
+> For a consent-gated approach, leave `autoIdentify` off and call `identify()` from the `/client` entry yourself, after your own consent flow.
 
 ## Reference:
 
