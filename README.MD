@@ -60,6 +60,7 @@ module.exports = {
         dataExcludeHash: false, // Optional, defaults to false
         dataTag: "", // Optional
         dataBeforeSend: "beforeSendHandler", // Optional
+        enableRecorder: false, // Optional, defaults to false. Loads recorder.js for session replays & heatmaps
       }),
     ],
   ],
@@ -86,6 +87,7 @@ Accepted fields:
 | `dataExcludeHash`   | `boolean` | `false`      | Configure the tracker to not record URL hashes.                                                                                                                                                                  |
 | `dataTag`           | `string`  |              | Add a tag to your website's data for segmentation.                                                                                                                                                               |
 | `dataBeforeSend`    | `string`  |              | Define a function that will be called before sending the data. Useful for modifying the data before it's sent to the server.                                                                                     |
+| `enableRecorder`    | `boolean` | `false`      | Load Umami's `recorder.js` script to enable [session replays](https://docs.umami.is/docs/replays) and [heatmaps](https://docs.umami.is/docs/heatmaps). Which of the two is recorded is toggled per-website in the Umami dashboard.                     |
 
 </small>
 

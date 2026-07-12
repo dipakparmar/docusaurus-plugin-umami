@@ -17,6 +17,7 @@ export default function pluginUmami(context: LoadContext, options: PluginOptions
     dataExcludeHash,
     dataTag,
     dataBeforeSend,
+    enableRecorder,
   } = options
   const isProd = process.env.NODE_ENV === 'production'
 
@@ -67,6 +68,20 @@ export default function pluginUmami(context: LoadContext, options: PluginOptions
               ...(dataBeforeSend && { 'data-before-send': dataBeforeSend }),
             },
           },
+          // Recorder script powers session replays and heatmaps (toggled per
+          // feature in the Umami dashboard).
+          ...(enableRecorder
+            ? [
+                {
+                  tagName: 'script',
+                  attributes: {
+                    defer: true,
+                    src: `https://${analyticsDomain}/recorder.js`,
+                    'data-website-id': websiteID,
+                  },
+                },
+              ]
+            : []),
         ],
       }
     },
@@ -86,6 +101,7 @@ const pluginOptionsSchema = Joi.object<PluginOptions>({
   dataExcludeHash: Joi.boolean().default(false),
   dataTag: Joi.string(),
   dataBeforeSend: Joi.string(),
+  enableRecorder: Joi.boolean().default(false),
 })
 
 export function validateOptions({

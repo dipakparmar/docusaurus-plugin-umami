@@ -11,6 +11,7 @@ export type PluginOptions = {
   dataExcludeHash?: boolean
   dataTag?: string
   dataBeforeSend?: string
+  enableRecorder?: boolean
 }
 
 export type Options = Partial<PluginOptions>
